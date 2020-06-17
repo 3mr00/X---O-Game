@@ -6,6 +6,8 @@ var player      = document.querySelector(".player");
 var ideaimg     = document.querySelector(".idea");
 var winimg      = document.querySelector(".win");
 var drawimg     = document.querySelector(".draw");
+var h1          = document.querySelector("h1");
+var stylestart  = document.querySelector(".stylestart");
 var finish = true;
 var counter = 0;
 var X  = [];
@@ -17,12 +19,13 @@ var blocks = row.children;
 //Start
 const play =() =>{
      winimg.classList.add("hide");
-
+  h1.classList.remove("hide");
   table.classList.remove("hide");
   resetButton.classList.remove("hide");
   table.classList.add("animate__bounceInDown")
   finish = false;
   playButton.classList.add("hide");
+  stylestart.classList.add("hide");
   
 }
 playButton.addEventListener("click" , play)
