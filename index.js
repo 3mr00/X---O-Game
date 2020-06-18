@@ -7,25 +7,27 @@ var ideaimg     = document.querySelector(".idea");
 var winimg      = document.querySelector(".win");
 var drawimg     = document.querySelector(".draw");
 var h1          = document.querySelector("h1");
-var stylestart  = document.querySelector(".stylestart");
 var finish = true;
 var counter = 0;
 var X  = [];
 var O  = [];
 var header      = document.querySelector(".header");
+var stylestart  = document.querySelector(".stylestart");
 var row         = document.querySelector(".rows");
 var blocks = row.children;
 
 //Start
 const play =() =>{
-     winimg.classList.add("hide");
+   winimg.classList.add("hide");
   h1.classList.remove("hide");
   table.classList.remove("hide");
   resetButton.classList.remove("hide");
   table.classList.add("animate__bounceInDown")
-  finish = false;
+     finish = false;
+
   playButton.classList.add("hide");
-  stylestart.classList.add("hide");
+    stylestart.classList.add("hide");
+    header.classList.remove("hide");
   
 }
 playButton.addEventListener("click" , play)
@@ -72,15 +74,19 @@ function reset(){
   X = [];
   O = [];
   counter = 0;
-  header.innerHTML = `Player <span>${player.textContent}</span> your turn`;
-        winimg.classList.add("hide");
+  stylestart.classList.add('hide');
+  header.classList.remove('hide');
+  winimg.classList.add("hide");
         drawimg.classList.add("hide");
         ideaimg.classList.remove("hide");
 
 }
 
 function winner(){
- header.textContent = ` ${winnner} wins !!!!`;
+ stylestart.classList.remove('hide');
+ stylestart.textContent = `${winnner} Wins!!`;
+ header.classList.add('hide');
+
  finish = true;
       winimg.classList.remove("hide");
      ideaimg.classList.add("hide");
@@ -89,7 +95,10 @@ function winner(){
 
 function checkForDraw(){
   function draw(){
-  header.textContent = "Ohhhh , no body wins!!";
+    stylestart.classList.remove('hide');
+    stylestart.textContent = "Ohhhh , no body wins!!";
+    header.classList.add('hide');
+
   finish = true;
      ideaimg.classList.add("hide");
      drawimg.classList.remove("hide");
